@@ -2,24 +2,27 @@
 
 public class MusicPlayerController : MonoBehaviour
 {
-
     static MusicPlayerController instance = null;
 
-	// Use this for initialization
-	void Start ()
+    void Awake()
     {
-        if(instance)
+        if (instance)
         {
             Destroy(gameObject);
-            Debug.Log("Duplicate Music Player Destroyed");
         }
         else
         {
             instance = this;
             GameObject.DontDestroyOnLoad(gameObject);
         }
+    }
+
+    // Use this for initialization
+    void Start ()
+    {
+        
 	}
-	
+
 	// Update is called once per frame
 	void Update ()
     {
