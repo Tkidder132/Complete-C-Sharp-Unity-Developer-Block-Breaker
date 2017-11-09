@@ -13,7 +13,7 @@ public class PaddleController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        mousePosX = Input.mousePosition.x / Screen.width * 16;
+        mousePosX = Mathf.Clamp(Input.mousePosition.x / Screen.width * 16, 0.5f, 15.5f);
         this.transform.position = new Vector3(mousePosX, this.transform.position.y, 0);
 	}
 }
