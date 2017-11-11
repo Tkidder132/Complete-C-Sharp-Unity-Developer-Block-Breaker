@@ -4,23 +4,28 @@ public class BrickController : MonoBehaviour
 {
     public int maxHits;
     public int timesHit;
-	// Use this for initialization
-	void Start ()
+
+    private LevelManagerController levelManager;
+
+    // Use this for initialization
+    void Start ()
     {
+        levelManager = FindObjectOfType<LevelManagerController>();
         timesHit = 0;
 	}
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if(++timesHit >= maxHits)
         {
             Destroy(this.gameObject);
         }
+        SimulateWin();
     }
 
-    // Update is called once per frame
-    void Update ()
+    // TODO Remove this method once we can actually win!
+    void SimulateWin()
     {
-		
-	}
+        levelManager.LoadNextLevel();
+    }
 }

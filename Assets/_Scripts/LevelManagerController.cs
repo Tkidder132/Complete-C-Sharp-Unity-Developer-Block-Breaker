@@ -9,6 +9,11 @@ public class LevelManagerController : MonoBehaviour
         SceneManager.LoadScene(name);
     }
 
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public void QuitRequest()
     {
         //NOTE: Will not "work" in editor. 
