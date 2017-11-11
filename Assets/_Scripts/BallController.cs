@@ -2,12 +2,13 @@
 
 public class BallController : MonoBehaviour
 {
-    public PaddleController paddle;
+    private PaddleController paddle;
     private Vector3 paddleToBallVector;
     bool gameStarted = false;
 	// Use this for initialization
 	void Start ()
     {
+        paddle = FindObjectOfType<PaddleController>();
         paddleToBallVector = this.transform.position - paddle.transform.position;
 	}
 	

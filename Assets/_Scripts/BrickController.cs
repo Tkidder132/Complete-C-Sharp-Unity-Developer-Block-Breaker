@@ -12,7 +12,6 @@ public class BrickController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("Brick Hit!");
         if(++timesHit >= maxHits)
         {
             Destroy(this.gameObject);

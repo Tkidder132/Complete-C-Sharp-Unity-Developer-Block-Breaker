@@ -2,7 +2,12 @@
 
 public class LoseColliderController : MonoBehaviour
 {
-    public LevelManagerController levelManager;
+    private LevelManagerController levelManager;
+
+    void Start()
+    {
+        levelManager = FindObjectOfType<LevelManagerController>();
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
