@@ -5,6 +5,7 @@ public class BallController : MonoBehaviour
     private PaddleController paddle;
     private Vector3 paddleToBallVector;
     bool gameStarted = false;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -17,12 +18,12 @@ public class BallController : MonoBehaviour
     {
         if(!gameStarted)
         {
-            this.transform.position = paddle.transform.position + paddleToBallVector;
+            transform.position = paddle.transform.position + paddleToBallVector;
 
             if (Input.GetMouseButtonDown(0))
             {
                 print("Mouse Clicked, launching ball");
-                this.GetComponent<Rigidbody2D>().velocity = new Vector2(2f, 10f);
+                GetComponent<Rigidbody2D>().velocity = new Vector2(2f, 10f);
                 gameStarted = true;
             }
         }
