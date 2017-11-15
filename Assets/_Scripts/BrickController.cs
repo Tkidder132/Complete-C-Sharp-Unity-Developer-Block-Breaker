@@ -16,11 +16,16 @@ public class BrickController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(++timesHit >= maxHits)
+        if(IsBreakable() && (++timesHit >= maxHits))
         {
             Destroy(this.gameObject);
         }
-        SimulateWin();
+        //SimulateWin();
+    }
+
+    bool IsBreakable()
+    {
+        return gameObject.tag.Equals("Breakable");
     }
 
     // TODO Remove this method once we can actually win!
