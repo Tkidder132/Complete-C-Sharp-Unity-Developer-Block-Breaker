@@ -4,14 +4,16 @@ public class BallController : MonoBehaviour
 {
     private PaddleController paddle;
     private Vector3 paddleToBallVector;
-    bool gameStarted = false;
     private AudioSource boing;
+    private Rigidbody2D ball;
+    bool gameStarted = false;
 
 	// Use this for initialization
 	void Start ()
     {
         paddle = FindObjectOfType<PaddleController>();
         boing = FindObjectOfType<AudioSource>();
+        ball = FindObjectOfType<Rigidbody2D>();
         paddleToBallVector = transform.position - paddle.transform.position;
 	}
 	
@@ -33,7 +35,9 @@ public class BallController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag.Equals("Breakable"))
+        Vector2 tweak = new Vector2(Random.Range(0f, 0.2f), Random.Range(0f, 0.3f));
+        ball.velocity += tweak;
+        if (collision.collider.tag.Equals("Breakable"))
         {
             boing.Play();
         }
