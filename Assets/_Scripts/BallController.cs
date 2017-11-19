@@ -5,11 +5,12 @@ public class BallController : MonoBehaviour
     private PaddleController paddle;
     private Vector3 paddleToBallVector;
     bool gameStarted = false;
-
+    private AudioSource boing;
 	// Use this for initialization
 	void Start ()
     {
         paddle = FindObjectOfType<PaddleController>();
+        boing = FindObjectOfType<AudioSource>();
         paddleToBallVector = this.transform.position - paddle.transform.position;
 	}
 	
@@ -28,4 +29,12 @@ public class BallController : MonoBehaviour
             }
         }
 	}
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag.Equals("Breakable"))
+        {
+            boing.Play();
+        }
+    }
 }
