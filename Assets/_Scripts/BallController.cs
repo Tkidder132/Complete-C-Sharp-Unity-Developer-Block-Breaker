@@ -6,12 +6,13 @@ public class BallController : MonoBehaviour
     private Vector3 paddleToBallVector;
     bool gameStarted = false;
     private AudioSource boing;
+
 	// Use this for initialization
 	void Start ()
     {
         paddle = FindObjectOfType<PaddleController>();
         boing = FindObjectOfType<AudioSource>();
-        paddleToBallVector = this.transform.position - paddle.transform.position;
+        paddleToBallVector = transform.position - paddle.transform.position;
 	}
 	
 	// Update is called once per frame

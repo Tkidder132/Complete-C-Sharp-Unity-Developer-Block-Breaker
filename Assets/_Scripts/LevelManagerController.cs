@@ -5,7 +5,7 @@ public class LevelManagerController : MonoBehaviour
 {
     public int brickCount = 0;
 
-    void Update()
+    public void CheckBrickCount()
     {
         if(brickCount <= 0)
         {

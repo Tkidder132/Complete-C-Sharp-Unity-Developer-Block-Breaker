@@ -24,18 +24,12 @@ public class BrickController : MonoBehaviour
         {
             Destroy(this.gameObject);
             levelManager.brickCount--;
+            levelManager.CheckBrickCount();
         }
-        //SimulateWin();
     }
 
     bool IsBreakable()
     {
         return gameObject.tag.Equals("Breakable");
-    }
-
-    // TODO Remove this method once we can actually win!
-    void SimulateWin()
-    {
-        levelManager.LoadNextLevel();
     }
 }
