@@ -11,6 +11,10 @@ public class BrickController : MonoBehaviour
     void Start ()
     {
         levelManager = FindObjectOfType<LevelManagerController>();
+        if (IsBreakable())
+        {
+            levelManager.brickCount++;
+        }
         timesHit = 0;
 	}
 
@@ -19,6 +23,7 @@ public class BrickController : MonoBehaviour
         if(IsBreakable() && (++timesHit >= maxHits))
         {
             Destroy(this.gameObject);
+            levelManager.brickCount--;
         }
         //SimulateWin();
     }
